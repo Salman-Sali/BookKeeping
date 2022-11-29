@@ -1,7 +1,7 @@
 # BookKeeping
 A simple booking keeping application using C# .net7 WPF
 
-#Status: Incomplete
+##Status: Incomplete
 
 Initial Login Username and password
 Admin
