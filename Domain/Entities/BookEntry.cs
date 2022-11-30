@@ -1,7 +1,7 @@
-﻿using Domain.Entities.BookTypeEntryEntities;
-using Domain.Enums;
+﻿using Bk.Domain.Entities.BookTypeEntryEntities;
+using Bk.Domain.Enums;
 
-namespace Domain.Entities
+namespace Bk.Domain.Entities
 {
     public class BookEntry : BaseEntity<long>, FuelCreditBookEntry, FuelDiscountCreditBookEntry
     {
@@ -17,6 +17,8 @@ namespace Domain.Entities
         public int BookId { get; set; }
         public Book Book { get; set; }
 
+        public string? Description { get; set; }
+
         public DateTime Date { get; set; }
         public decimal? Debit { get; set; }
         public decimal? Credit { get; set; }
@@ -26,5 +28,7 @@ namespace Domain.Entities
         public string? Vehicle { get; set; }
         public decimal? Litre { get; set; }
         public ItemType? ItemType { get; set; }
+
+        public decimal? Amount { get; set; }
     }
 }

@@ -1,8 +1,8 @@
-﻿using Infrastructure.Context;
+﻿using Bk.Infrastructure.Context;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.Commands.Users
+namespace BK.Application.Commands.Users
 {
     public class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand, bool>
     {

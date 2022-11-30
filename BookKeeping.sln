@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{367A8AD8-711C-43EA-AAFB-950AD3368F33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bk.Infrastructure", "Infrastructure\Bk.Infrastructure.csproj", "{367A8AD8-711C-43EA-AAFB-950AD3368F33}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{538D7205-6AED-45F3-BB63-8DEF68E64652}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bk.Domain", "Domain\Bk.Domain.csproj", "{538D7205-6AED-45F3-BB63-8DEF68E64652}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserInterface", "UserInterface\UserInterface.csproj", "{A924FA04-180B-4ED6-A1B9-983B29D33BC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bk.UserInterface", "UserInterface\Bk.UserInterface.csproj", "{A924FA04-180B-4ED6-A1B9-983B29D33BC5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{25DE09BF-5926-4148-939E-2F9C439CB3A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BK.Application", "Application\BK.Application.csproj", "{25DE09BF-5926-4148-939E-2F9C439CB3A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{1EFBEC6D-6D78-4B96-A6B2-1D921BB8FE4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bk.Shared", "Shared\Bk.Shared.csproj", "{1EFBEC6D-6D78-4B96-A6B2-1D921BB8FE4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

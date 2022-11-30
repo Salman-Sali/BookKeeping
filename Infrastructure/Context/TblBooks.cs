@@ -1,8 +1,8 @@
-﻿using Domain.Entities;
-using Domain.Enums;
+﻿using Bk.Domain.Entities;
+using Bk.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Context
+namespace Bk.Infrastructure.Context
 {
     public class TblBooks
     {

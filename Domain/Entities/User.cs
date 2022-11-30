@@ -1,4 +1,4 @@
-﻿namespace Domain.Entities
+﻿namespace Bk.Domain.Entities
 {
     public class User : BaseEntity<int>
     {

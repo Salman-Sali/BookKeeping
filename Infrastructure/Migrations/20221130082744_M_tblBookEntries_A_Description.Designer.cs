@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bk.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221129171844_A_tblBookEntries")]
-    partial class AtblBookEntries
+    [Migration("20221130082744_M_tblBookEntries_A_Description")]
+    partial class MtblBookEntriesADescription
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -81,6 +81,9 @@ namespace Bk.Infrastructure.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<decimal?>("Debit")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Driver")

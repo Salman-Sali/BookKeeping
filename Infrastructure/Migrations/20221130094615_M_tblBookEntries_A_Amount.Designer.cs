@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bk.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221129171844_A_tblBookEntries")]
-    partial class AtblBookEntries
+    [Migration("20221130094615_M_tblBookEntries_A_Amount")]
+    partial class MtblBookEntriesAAmount
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,7 +20,7 @@ namespace Bk.Infrastructure.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.0");
 
-            modelBuilder.Entity("Domain.Entities.Book", b =>
+            modelBuilder.Entity("Bk.Domain.Entities.Book", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -58,12 +58,15 @@ namespace Bk.Infrastructure.Migrations
                     b.ToTable("tblBooks", (string)null);
                 });
 
-            modelBuilder.Entity("Domain.Entities.BookEntry", b =>
+            modelBuilder.Entity("Bk.Domain.Entities.BookEntry", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER")
                         .HasColumnName("BookEntryId");
+
+                    b.Property<decimal?>("Amount")
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("BookId")
                         .HasColumnType("INTEGER");
@@ -81,6 +84,9 @@ namespace Bk.Infrastructure.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<decimal?>("Debit")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Driver")
@@ -122,7 +128,7 @@ namespace Bk.Infrastructure.Migrations
                     b.ToTable("tblBookEntries", (string)null);
                 });
 
-            modelBuilder.Entity("Domain.Entities.User", b =>
+            modelBuilder.Entity("Bk.Domain.Entities.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -154,9 +160,9 @@ namespace Bk.Infrastructure.Migrations
                     b.ToTable("tblUsers", (string)null);
                 });
 
-            modelBuilder.Entity("Domain.Entities.BookEntry", b =>
+            modelBuilder.Entity("Bk.Domain.Entities.BookEntry", b =>
                 {
-                    b.HasOne("Domain.Entities.Book", "Book")
+                    b.HasOne("Bk.Domain.Entities.Book", "Book")
                         .WithMany("BookEntries")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -165,7 +171,7 @@ namespace Bk.Infrastructure.Migrations
                     b.Navigation("Book");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Book", b =>
+            modelBuilder.Entity("Bk.Domain.Entities.Book", b =>
                 {
                     b.Navigation("BookEntries");
                 });

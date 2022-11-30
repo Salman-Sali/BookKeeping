@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Application.Commands.Users
+namespace BK.Application.Commands.Users
 {
     public class AddUserCommand : IRequest<bool>
     {

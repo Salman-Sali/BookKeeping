@@ -1,6 +1,6 @@
-﻿using Domain.Enums;
+﻿using Bk.Domain.Enums;
 
-namespace Domain.Entities.BookTypeEntryEntities
+namespace Bk.Domain.Entities.BookTypeEntryEntities
 {
     public interface FuelCreditBookEntry
     {

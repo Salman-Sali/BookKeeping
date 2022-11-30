@@ -1,4 +1,4 @@
-﻿namespace Domain.Enums
+﻿namespace Bk.Domain.Enums
 {
     public enum ItemType
     {

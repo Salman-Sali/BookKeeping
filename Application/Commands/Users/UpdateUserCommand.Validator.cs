@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using Infrastructure.Context;
+using Bk.Infrastructure.Context;
 
-namespace Application.Commands.Users
+namespace BK.Application.Commands.Users
 {
     public class UpdateUserCommandValidator : AbstractValidator<UpdateUserCommand>
     {

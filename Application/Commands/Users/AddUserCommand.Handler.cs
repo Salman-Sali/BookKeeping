@@ -1,9 +1,9 @@
-﻿using Domain.Entities;
-using Infrastructure.Context;
+﻿using Bk.Domain.Entities;
+using Bk.Infrastructure.Context;
 using MediatR;
-using Shared;
+using Bk.Shared;
 
-namespace Application.Commands.Users
+namespace BK.Application.Commands.Users
 {
     public class AddUserCommandHandler : IRequestHandler<AddUserCommand, bool>
     {

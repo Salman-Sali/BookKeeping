@@ -1,7 +1,7 @@
-﻿using Domain.Entities.BookEntities;
-using Domain.Enums;
+﻿using Bk.Domain.Entities.BookEntities;
+using Bk.Domain.Enums;
 
-namespace Domain.Entities
+namespace Bk.Domain.Entities
 {
     public class Book : BaseEntity<int>, FuelDiscountCreditBook
     {
@@ -14,8 +14,8 @@ namespace Domain.Entities
 
         }
 
-        public string Name { get; set; }
-        public string Phone { get; set; }
+        public string Name { get; set; }//make unique and index
+        public string? Phone { get; set; }
         public BookType BookType { get; set; }
 
         public decimal? DiscountPerLitre { get; set; }

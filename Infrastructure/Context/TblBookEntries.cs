@@ -1,8 +1,8 @@
-﻿using Domain.Entities;
-using Domain.Enums;
+﻿using Bk.Domain.Entities;
+using Bk.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Context
+namespace Bk.Infrastructure.Context
 {
     public class TblBookEntries
     {
@@ -18,6 +18,9 @@ namespace Infrastructure.Context
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<BookEntry>().Property(x => x.Date).IsRequired(true);
+
+            modelBuilder.Entity<BookEntry>().Property(x => x.Description).IsRequired(false);
+            modelBuilder.Entity<BookEntry>().Property(x => x.Amount).IsRequired(false);
 
             modelBuilder.Entity<BookEntry>().Property(x => x.Credit).IsRequired(false);
             modelBuilder.Entity<BookEntry>().HasIndex(x => x.Credit).IsUnique(false);

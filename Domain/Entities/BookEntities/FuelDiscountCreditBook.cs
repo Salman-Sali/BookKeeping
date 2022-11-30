@@ -1,4 +1,4 @@
-﻿namespace Domain.Entities.BookEntities
+﻿namespace Bk.Domain.Entities.BookEntities
 {
     public interface FuelDiscountCreditBook
     {

@@ -1,7 +1,7 @@
-﻿using Domain.Entities;
+﻿using Bk.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Context
+namespace Bk.Infrastructure.Context
 {
     public class TblUsers
     {

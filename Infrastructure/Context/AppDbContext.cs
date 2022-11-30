@@ -1,8 +1,8 @@
-﻿using Domain.Entities;
+﻿using Bk.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
-namespace Infrastructure.Context
+namespace Bk.Infrastructure.Context
 {
     public class AppDbContext : DbContext
     {
@@ -25,6 +25,6 @@ namespace Infrastructure.Context
         public DbSet<BookEntry> BookEntries { get; set; }
     }
 }
-//dotnet-ef migrations add A_tblBookEntries --project Infrastructure --startup-project UserInterface
+//dotnet-ef migrations add M_tblBookEntries_A_Description --project Infrastructure --startup-project UserInterface
 //dotnet-ef migrations remove --project Infrastructure --startup-project UserInterface
 //dotnet-ef database update --project Infrastructure --startup-project UserInterface

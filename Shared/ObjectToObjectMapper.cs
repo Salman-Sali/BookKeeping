@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace Shared
+namespace Bk.Shared
 {
     public static class ObjectToObjectMapper<TRequest, TResponse>
     {

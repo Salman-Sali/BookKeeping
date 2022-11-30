@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Cryptography;
 
-namespace Domain
+namespace Bk.Domain
 {
     public class BaseEntity<TId>
     {

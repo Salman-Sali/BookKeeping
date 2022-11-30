@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Context
+namespace Bk.Infrastructure.Context
 {
     public class DatabaseTables
     {
