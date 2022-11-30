@@ -29,7 +29,7 @@ namespace Bk.Infrastructure.Migrations
                     table.PrimaryKey("PK_tblUsers", x => x.UserId);
                 });
 
-            migrationBuilder.Sql($"INSERT INTO tblUsers\r\n(UserName, Password, CreatedBy, UpdatedBy, CreatedOn, UpdatedOn)\r\nVALUES('Admin', 'Password', 1, 1, {DateTime.Now}, {DateTime.Now});\r\n");
+            migrationBuilder.Sql($"INSERT INTO tblUsers\r\n(UserName, Password, CreatedBy, UpdatedBy, CreatedOn, UpdatedOn)\r\nVALUES('Admin', 'Password', 1, 1, '{DateTime.Now}', '{DateTime.Now}');\r\n");
         }
 
         /// <inheritdoc />

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Bk.Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,8 +22,9 @@ namespace Bk.UserInterface
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(AppDbContext context)
         {
+            context.Database.Migrate();
             InitializeComponent();
         }
     }

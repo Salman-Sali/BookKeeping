@@ -40,6 +40,7 @@ namespace Bk.Infrastructure.Queries.BookEntries
                     Litre = x.Litre,
                     ItemType = x.ItemType.ToString(),
                     Amount = x.Amount,
+                    Balance = _context.BookEntries.Where(a=>a.Id <= x.Id).Sum(x => x.Credit) - _context.BookEntries.Where(a => a.Id <= x.Id).Sum(x => x.Debit),
                     CreatedBy = _context.Users.FirstOrDefault(a => a.Id == x.CreatedBy).UserName,
                     CreatedOn = x.CreatedOn.ToString(),
                     UpdatedBy = x.CreatedOn == x.UpdatedOn ? null : _context.Users.FirstOrDefault(a => a.Id == x.UpdatedBy).UserName,

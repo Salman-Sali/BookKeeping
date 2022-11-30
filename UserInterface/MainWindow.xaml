@@ -5,8 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bk.UserInterface"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+        Title="Book Keeping" MinHeight="700" MinWidth="1200" Height="700" Width="1200" Foreground="White" FontFamily="Segoe UI Light">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="MainResourceDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid x:Name="MainGrid">
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="{DynamicResource ResourceKey=BackGround}"
+                AlignmentY="Top" AlignmentX="Center"/>
+        </Grid.Background>
+        <ContentControl x:Name="MainContent"/>
     </Grid>
 </Window>
