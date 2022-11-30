@@ -11,6 +11,7 @@ namespace Bk.Infrastructure.Context
             modelBuilder.Entity<Book>().ToTable("tblBooks");
             modelBuilder.Entity<Book>().Property(x => x.Id).HasColumnName("BookId");
             modelBuilder.Entity<Book>().Property(x => x.Name).IsRequired(true);
+            modelBuilder.Entity<Book>().HasIndex(x => x.Name).IsUnique(true);
             modelBuilder.Entity<Book>().Property(x => x.Phone).IsRequired(false);
             modelBuilder.Entity<Book>().Property(x => x.DiscountPerLitre).IsRequired(false);
             modelBuilder.Entity<Book>().Property(e => e.BookType)

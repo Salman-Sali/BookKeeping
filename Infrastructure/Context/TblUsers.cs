@@ -10,6 +10,7 @@ namespace Bk.Infrastructure.Context
             modelBuilder.Entity<User>().ToTable("tblUsers");
             modelBuilder.Entity<User>().Property(x => x.Id).HasColumnName("UserId");
             modelBuilder.Entity<User>().Property(x => x.UserName).IsRequired(true);
+            modelBuilder.Entity<User>().HasIndex(x => x.UserName).IsUnique(true);
             modelBuilder.Entity<User>().Property(x => x.Password).IsRequired(true);
         }
     }

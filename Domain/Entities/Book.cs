@@ -14,7 +14,7 @@ namespace Bk.Domain.Entities
 
         }
 
-        public string Name { get; set; }//make unique and index
+        public string Name { get; set; }
         public string? Phone { get; set; }
         public BookType BookType { get; set; }
 
