@@ -14,11 +14,17 @@ namespace Bk.Infrastructure.Queries.BookEntries
 
         public async Task<GetBookEntriesResponse> Handle(GetBookEntries request, CancellationToken cancellationToken)
         {
-            if(request.Page == null)
+            int totalPages = 0;
+            var count = await _context.BookEntries.CountAsync(x => x.BookId == request.BookId);
+            totalPages = count / request.Limit.Value;
+            if (count % request.Limit != 0)
             {
-                var count = await _context.BookEntries.CountAsync(x => x.BookId == request.BookId);
+                totalPages++;
+            }
+            if (request.Page == null)
+            {
                 request.Page = count / request.Limit;
-                if(count % request.Limit != 0)
+                if (count % request.Limit != 0)
                 {
                     request.Page++;
                 }
@@ -31,8 +37,10 @@ namespace Bk.Infrastructure.Queries.BookEntries
                 .Select(x => new BookEntryResponse
                 {
                     Id = x.Id,
+                    BookId = x.BookId,
+                    SerialNumber = _context.BookEntries.Where(a=>a.BookId == request.BookId && a.Id <= x.Id).Count(),
                     Description = x.Description,
-                    Date = x.Date.Date.ToString(),
+                    Date = x.Date.ToShortDateString(),
                     Debit = x.Debit,
                     Credit = x.Credit,
                     Driver = x.Driver,
@@ -40,17 +48,18 @@ namespace Bk.Infrastructure.Queries.BookEntries
                     Litre = x.Litre,
                     ItemType = x.ItemType.ToString(),
                     Amount = x.Amount,
-                    Balance = _context.BookEntries.Where(a=>a.Id <= x.Id).Sum(x => x.Credit) - _context.BookEntries.Where(a => a.Id <= x.Id).Sum(x => x.Debit),
+                    Balance = _context.BookEntries.Where(a => a.Id <= x.Id && a.BookId == request.BookId).Sum(x => x.Credit) - _context.BookEntries.Where(a => a.Id <= x.Id && a.BookId == request.BookId).Sum(x => x.Debit),
                     CreatedBy = _context.Users.FirstOrDefault(a => a.Id == x.CreatedBy).UserName,
-                    CreatedOn = x.CreatedOn.ToString(),
-                    UpdatedBy = x.CreatedOn == x.UpdatedOn ? null : _context.Users.FirstOrDefault(a => a.Id == x.UpdatedBy).UserName,
-                    UpdatedOn = x.CreatedOn == x.UpdatedOn ? null : x.UpdatedOn.ToString(),
+                    CreatedOn = x.CreatedOn.ToShortDateString() + " " + x.CreatedOn.ToShortTimeString(),
+                    UpdatedBy = (x.CreatedOn.ToShortDateString() == x.UpdatedOn.ToShortDateString() && x.CreatedOn.ToShortTimeString() == x.UpdatedOn.ToShortTimeString()) ? null : _context.Users.FirstOrDefault(a => a.Id == x.UpdatedBy).UserName,
+                    UpdatedOn = x.CreatedOn.ToShortDateString() == x.UpdatedOn.ToShortDateString() && x.CreatedOn.ToShortTimeString() == x.UpdatedOn.ToShortTimeString() ? null : x.UpdatedOn.ToShortDateString() + " " + x.UpdatedOn.ToShortTimeString(),
 
                 })
                 .OrderBy(x => x.Id)
-                .Skip((request.Page.Value-1) * request.Limit.Value)
+                .Skip((request.Page.Value - 1) * request.Limit.Value)
                 .Take(request.Limit.Value)
-                .ToListAsync()
+                .ToListAsync(),
+                TotalPages = totalPages
             };
         }
     }

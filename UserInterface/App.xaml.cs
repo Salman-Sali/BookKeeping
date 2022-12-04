@@ -1,6 +1,7 @@
 ﻿using Bk.Infrastructure.Context;
 using Bk.Infrastructure.Queries.BookEntries;
 using Bk.UserInterface.Extentions;
+using Bk.UserInterface.Views.Layout;
 using Bk.UserInterface.Views.Login;
 using BK.Application.Commands.Users;
 using FluentValidation;
@@ -54,14 +55,14 @@ namespace Bk.UserInterface
 
 
             services.AddSingleton<MainWindow>();
-            services.AddSingleton<Login>();
+            services.AddSingleton<LoginView>();
+            services.AddSingleton<TopBarControl>();
         }
 
         private void OnStartup(object sender, StartupEventArgs e)
         {
             var mainWindow = _serviceProvider.GetService<MainWindow>();
             mainWindow.Show();
-            mainWindow.MainContent.Content = _serviceProvider.GetService<Login>();
         }
 
         void OnDispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)

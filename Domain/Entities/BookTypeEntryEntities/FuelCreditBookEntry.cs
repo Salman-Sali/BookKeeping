@@ -6,7 +6,7 @@ namespace Bk.Domain.Entities.BookTypeEntryEntities
     {
         public string? Driver { get; set; }
         public string? Vehicle { get; set; }
-        public decimal? Litre { get; set; }
+        public float? Litre { get; set; }
         public ItemType? ItemType { get; set; }
     }
 }

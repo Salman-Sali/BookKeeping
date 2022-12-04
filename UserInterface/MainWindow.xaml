@@ -18,6 +18,31 @@
             <ImageBrush Stretch="Fill" ImageSource="{DynamicResource ResourceKey=BackGround}"
                 AlignmentY="Top" AlignmentX="Center"/>
         </Grid.Background>
-        <ContentControl x:Name="MainContent"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ContentControl Grid.Row="0" Grid.ColumnSpan="9" x:Name="TopBarContent"/>
+        <ContentControl Grid.Row="1" Grid.ColumnSpan="9" Grid.RowSpan="9" x:Name="MainContent"/>
+        <ContentControl Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="7" Grid.RowSpan="7" x:Name="DialogGridContent"/>
     </Grid>
 </Window>

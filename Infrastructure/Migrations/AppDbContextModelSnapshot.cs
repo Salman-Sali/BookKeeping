@@ -34,8 +34,8 @@ namespace Bk.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal?>("DiscountPerLitre")
-                        .HasColumnType("TEXT");
+                    b.Property<float?>("DiscountPerLitre")
+                        .HasColumnType("REAL");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -65,8 +65,8 @@ namespace Bk.Infrastructure.Migrations
                         .HasColumnType("INTEGER")
                         .HasColumnName("BookEntryId");
 
-                    b.Property<decimal?>("Amount")
-                        .HasColumnType("TEXT");
+                    b.Property<float?>("Amount")
+                        .HasColumnType("REAL");
 
                     b.Property<int>("BookId")
                         .HasColumnType("INTEGER");
@@ -77,14 +77,14 @@ namespace Bk.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal?>("Credit")
-                        .HasColumnType("TEXT");
+                    b.Property<float?>("Credit")
+                        .HasColumnType("REAL");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal?>("Debit")
-                        .HasColumnType("TEXT");
+                    b.Property<float?>("Debit")
+                        .HasColumnType("REAL");
 
                     b.Property<string>("Description")
                         .HasColumnType("TEXT");
@@ -95,8 +95,8 @@ namespace Bk.Infrastructure.Migrations
                     b.Property<string>("ItemType")
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal?>("Litre")
-                        .HasColumnType("TEXT");
+                    b.Property<float?>("Litre")
+                        .HasColumnType("REAL");
 
                     b.Property<int>("UpdatedBy")
                         .HasColumnType("INTEGER");

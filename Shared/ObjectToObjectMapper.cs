@@ -7,16 +7,14 @@ namespace Bk.Shared
     {
         private static List<PropertyInfo>? responseProperties;
         public static List<PropertyInfo>? ResponseProperties {
-            get { 
-                return responseProperties;
-            } 
-            private set {
+            get {
                 responseProperties = new List<PropertyInfo>();
                 foreach (var item in typeof(TResponse).GetProperties())
                 {
                     responseProperties.Add(item);
                 }
-            } 
+                return responseProperties;
+            }
         }
 
         private static List<PropertyInfo>? requestProperties;
@@ -24,15 +22,12 @@ namespace Bk.Shared
         {
             get
             {
-                return requestProperties;
-            }
-            private set
-            {
                 requestProperties = new List<PropertyInfo>();
                 foreach (var item in typeof(TRequest).GetProperties())
                 {
                     requestProperties.Add(item);
                 }
+                return requestProperties;
             }
         }
 
@@ -53,9 +48,10 @@ namespace Bk.Shared
         {
             foreach (var item in RequestProperties ?? Enumerable.Empty<PropertyInfo>())
             {
-                if (ResponseProperties.Contains(item))
+                var similarResponseProperty = ResponseProperties.Where(x=>x.Name == item.Name && x.PropertyType == item.PropertyType).FirstOrDefault();
+                if (similarResponseProperty != null)
                 {
-                    ResponseProperties.Where(x => x == item).First().SetValue(response, item.GetValue(request));
+                    similarResponseProperty.SetValue(response, item.GetValue(request));
                 }
             }
             return response;

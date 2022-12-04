@@ -28,9 +28,8 @@ namespace Bk.UserInterface.Extentions
 
             if (validationFailures.Any())
             {
-                var errorMessage = string.Join(" ", validationFailures);
-                MessageBox.Show(errorMessage, "Notice", MessageBoxButton.OK, MessageBoxImage.Information);
-                throw new Exception();
+                var errorMessage = string.Join("\n", validationFailures);
+                throw new Exception(errorMessage);
             }
             return next();
         }

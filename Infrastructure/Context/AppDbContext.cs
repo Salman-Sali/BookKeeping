@@ -29,6 +29,6 @@ namespace Bk.Infrastructure.Context
         public DbSet<BookEntry> BookEntries { get; set; }
     }
 }
-//dotnet-ef migrations add M_tblBooks_M_Name_unique --project Infrastructure --startup-project UserInterface
+//dotnet-ef migrations add M_decimalToFloat --project Infrastructure --startup-project UserInterface
 //dotnet-ef migrations remove --project Infrastructure --startup-project UserInterface
 //dotnet-ef database update --project Infrastructure --startup-project UserInterface

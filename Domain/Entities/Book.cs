@@ -18,7 +18,7 @@ namespace Bk.Domain.Entities
         public string? Phone { get; set; }
         public BookType BookType { get; set; }
 
-        public decimal? DiscountPerLitre { get; set; }
+        public float? DiscountPerLitre { get; set; }
 
         public IEnumerable<BookEntry> BookEntries { get; set; }
     }

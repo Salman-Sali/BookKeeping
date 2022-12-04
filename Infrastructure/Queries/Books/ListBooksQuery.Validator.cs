@@ -8,10 +8,9 @@ namespace Bk.Infrastructure.Queries.Books
         public ListBooksQueryValidator()
         {
             RuleFor(x => x.BookType)
-                .NotEmpty()
                 .Must(x => Enum.TryParse(typeof(BookType), x, out var result))
                 .WithMessage("Invalid book type.")
-                .When(x => x.BookType != null);
+                .When(x => !string.IsNullOrEmpty(x.BookType));
         }
     }
 }

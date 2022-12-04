@@ -2,6 +2,6 @@
 {
     public interface FuelDiscountCreditBook
     {
-        public decimal? DiscountPerLitre { get; set; }
+        public float? DiscountPerLitre { get; set; }
     }
 }

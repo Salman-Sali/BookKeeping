@@ -2,6 +2,6 @@
 {
     public interface FuelDiscountCreditBookEntry
     {
-        public decimal? Amount { get; set; }
+        public float? Amount { get; set; }
     }
 }

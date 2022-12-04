@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="Bk.UserInterface.Views.Layout.TopBarControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Bk.UserInterface.Views.Layout"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="Gray">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../MainResourceDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <ContentControl x:Name="HomeButtonContentControl" Grid.Column="0"/>
+            <Viewbox Stretch="Uniform" HorizontalAlignment="Left" VerticalAlignment="Stretch" Grid.Column="1" Grid.ColumnSpan="3">
+                <TextBlock x:Name="TitleText"/>
+            </Viewbox>
+            <ContentControl x:Name="ButtonsContentControl"  Grid.Column="4" Grid.ColumnSpan="3"/>
+
+            <Button x:Name="SettingsButton" Grid.Column="15" Margin="5" Background="CornflowerBlue" Click="SettingsButton_Click">
+                <Viewbox  Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Image Source="{DynamicResource ResourceKey=Settings}"/>
+                </Viewbox>
+            </Button>
+            
+            <Button Grid.Column="16" Margin="5" Click="LogoutButton_Click" Background="Firebrick">
+                <Viewbox  Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Image Source="{DynamicResource ResourceKey=Logout}"/>
+                </Viewbox>
+            </Button>
+        </Grid>
+    </Grid>
+</UserControl>

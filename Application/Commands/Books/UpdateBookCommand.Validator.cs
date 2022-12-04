@@ -19,7 +19,7 @@ namespace BK.Application.Commands.Books
 
             RuleFor(x => x.Phone)
                 .Length(10)
-                .When(x => x.Phone != null);
+                .When(x => !string.IsNullOrEmpty(x.Phone));
 
             RuleFor(x => x.Name)
                 .NotEmpty()

@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="Bk.UserInterface.Views.Book.ListBooks.PageControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Bk.UserInterface.Views.Book.ListBooks"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="#7F808080">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../../MainResourceDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="FirstPageButton" Grid.Column="2" Margin="5" Click="FirstPageButton_Click" >
+            <Viewbox  Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Image Source="{DynamicResource ResourceKey=First}"/>
+            </Viewbox>
+        </Button>
+        <Button x:Name="PreviousPageButton" Grid.Column="3" Margin="5" Click="PreviousPageButton_Click" >
+            <Viewbox  Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Image Source="{DynamicResource ResourceKey=Previous}"/>
+            </Viewbox>
+        </Button>
+        <TextBlock x:Name="PageCountText" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"></TextBlock>
+        <Button x:Name="NextPageButton" Grid.Column="5" Margin="5" Click="NextPageButton_Click" >
+            <Viewbox  Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Image Source="{DynamicResource ResourceKey=Next}"/>
+            </Viewbox>
+        </Button>
+        <Button x:Name="LastPageButton" Grid.Column="6" Margin="5" Click="LastPageButton_Click">
+            <Viewbox  Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Image Source="{DynamicResource ResourceKey=Last}"/>
+            </Viewbox>
+        </Button>
+    </Grid>
+</UserControl>

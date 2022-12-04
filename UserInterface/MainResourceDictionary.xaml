@@ -2,4 +2,15 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <BitmapImage  x:Key="BackGround" UriSource="T:\CaveWorkRepository\BookKeeping\UserInterface\Resources\Images\bg1.jpg" />
+    <BitmapImage  x:Key="Logout" UriSource="T:\CaveWorkRepository\BookKeeping\UserInterface\Resources\Images\logout.png" />
+    <BitmapImage  x:Key="Home" UriSource="T:\CaveWorkRepository\BookKeeping\UserInterface\Resources\Images\home.png" />
+    <BitmapImage  x:Key="Book" UriSource="T:\CaveWorkRepository\BookKeeping\UserInterface\Resources\Images\book.png" />
+    <BitmapImage  x:Key="Settings" UriSource="T:\CaveWorkRepository\BookKeeping\UserInterface\Resources\Images\settings.png" />
+
+    <BitmapImage  x:Key="Next" UriSource="T:\CaveWorkRepository\BookKeeping\UserInterface\Resources\Images\next.png" />
+    <BitmapImage  x:Key="Last" UriSource="T:\CaveWorkRepository\BookKeeping\UserInterface\Resources\Images\last.png" />
+    <BitmapImage  x:Key="Previous" UriSource="T:\CaveWorkRepository\BookKeeping\UserInterface\Resources\Images\previous.png" />
+    <BitmapImage  x:Key="First" UriSource="T:\CaveWorkRepository\BookKeeping\UserInterface\Resources\Images\first.png" />
+    
+    <BitmapImage  x:Key="Back" UriSource="T:\CaveWorkRepository\BookKeeping\UserInterface\Resources\Images\back.png" />
 </ResourceDictionary>
