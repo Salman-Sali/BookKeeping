@@ -12,12 +12,12 @@ namespace Bk.Infrastructure.Queries.BookEntries
             _context = context;
         }
 
-        public Task<ListDriversQueryResponse> Handle(ListDriversQuery request, CancellationToken cancellationToken)
+        public async Task<ListDriversQueryResponse> Handle(ListDriversQuery request, CancellationToken cancellationToken)
         {
-            return Task.FromResult(new ListDriversQueryResponse
+            return new ListDriversQueryResponse
             {
-                Drivers = _context.BookEntries.Where(x => x.Id == request.BookId).Select(x => x.Driver).ToList().Distinct().ToList(),
-            });
+                Drivers = await _context.BookEntries.Where(x => x.BookId == request.BookId).Select(x => x.Driver).Distinct().ToListAsync(),
+            };
         }
     }
 }

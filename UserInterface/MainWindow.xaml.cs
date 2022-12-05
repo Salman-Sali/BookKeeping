@@ -136,6 +136,7 @@ namespace Bk.UserInterface
                     break;
 
                 case nameof(BookType.FuelCreditBook):
+                    MainContent.Content = new FCBookEntryDetailsControl(_mediator, entryResponse, this);
                     break;
 
                 case nameof(BookType.FuelCreditDiscountBook):

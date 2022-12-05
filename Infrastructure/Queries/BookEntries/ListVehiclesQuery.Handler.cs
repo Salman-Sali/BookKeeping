@@ -15,7 +15,7 @@ namespace Bk.Infrastructure.Queries.BookEntries
         {
             return new ListVehiclesQueryResponse
             {
-                Vehicles = await _context.BookEntries.Where(x => x.Id == request.BookId).Select(x => x.Vehicle).Distinct().ToListAsync(),
+                Vehicles = await _context.BookEntries.Where(x => x.BookId == request.BookId).Select(x => x.Vehicle).Distinct().ToListAsync(),
             };
         }
     }
