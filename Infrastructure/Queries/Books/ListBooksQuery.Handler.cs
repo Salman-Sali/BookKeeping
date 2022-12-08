@@ -37,6 +37,7 @@ namespace Bk.Infrastructure.Queries.Books
                     BookType = x.BookType.ToString(),
                     Phone = x.Phone,
                     Balance = _context.BookEntries.Where(a=>a.BookId == x.Id).Sum(x => x.Credit) - _context.BookEntries.Where(a => a.BookId == x.Id).Sum(x => x.Debit),
+                    DiscountPerLitre = x.DiscountPerLitre,
                     CreatedBy = _context.Users.FirstOrDefault(a => a.Id == x.CreatedBy).UserName,
                     CreatedOn = x.CreatedOn.ToShortDateString() + " " + x.CreatedOn.ToShortTimeString(),
                     UpdatedBy = (x.CreatedOn.ToShortDateString() == x.UpdatedOn.ToShortDateString() && x.CreatedOn.ToShortTimeString() == x.UpdatedOn.ToShortTimeString()) ? null : _context.Users.FirstOrDefault(a => a.Id == x.UpdatedBy).UserName,

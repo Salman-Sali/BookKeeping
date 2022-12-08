@@ -19,7 +19,7 @@ namespace BK.Application.Commands.BookEntries
             var bookEntry = new BookEntry(request.UserId)
             {
                 Date = DateTime.Parse(request.Date),
-                ItemType = request.ItemType != null ? (ItemType)Enum.Parse(typeof(ItemType), request.ItemType) : null,
+                ItemType = !string.IsNullOrWhiteSpace(request.ItemType)? (ItemType)Enum.Parse(typeof(ItemType), request.ItemType) : null,
             };
             bookEntry = ObjectToObjectMapper<AddBookEntryCommand, BookEntry>.Map(request, bookEntry);
             await _context.AddAsync(bookEntry);

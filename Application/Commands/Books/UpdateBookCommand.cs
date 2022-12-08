@@ -9,5 +9,6 @@ namespace BK.Application.Commands.Books
         public int BookId { get; set; }
         public string Name { get; set; }
         public string? Phone { get; set; }
+        public float? DiscountPerLitre { get; set; }
     }
 }

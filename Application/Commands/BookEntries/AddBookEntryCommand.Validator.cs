@@ -58,7 +58,7 @@ namespace BK.Application.Commands.BookEntries
                 .NotEmpty()
                 .Must(x=> Enum.TryParse(typeof(ItemType), x, out var result))
                 .WithMessage("Provide a valid item type.")
-                .When(x => x.ItemType != null);
+                .When(x => !string.IsNullOrEmpty(x.ItemType));
 
             RuleFor(x => x.Amount)
                 .GreaterThan(0)

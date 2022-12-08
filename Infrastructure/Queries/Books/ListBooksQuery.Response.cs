@@ -15,6 +15,7 @@ namespace Bk.Infrastructure.Queries.Books
         public string? Phone { get; set; }
         public string BookType { get; set; }
         public float? Balance { get; set; }
+        public float? DiscountPerLitre { get; set; }
 
         public string CreatedOn { get; set; }
         public string CreatedBy { get; set; }

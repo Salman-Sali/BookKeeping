@@ -21,6 +21,7 @@ namespace Bk.Infrastructure.Queries.Books
                     Name = x.Name,
                     BookType = x.BookType.ToString(),
                     Phone = x.Phone,
+                    DiscountPerLitre = x.DiscountPerLitre,
                     Balance = _context.BookEntries.Where(a => a.BookId == x.Id).Sum(x => x.Credit) - _context.BookEntries.Where(a => a.BookId == x.Id).Sum(x => x.Debit),
                     CreatedBy = _context.Users.FirstOrDefault(a => a.Id == x.CreatedBy).UserName,
                     CreatedOn = x.CreatedOn.ToShortDateString() + " " + x.CreatedOn.ToShortTimeString(),

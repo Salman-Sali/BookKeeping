@@ -80,7 +80,7 @@ namespace Bk.UserInterface
             MainContent.Content = new CreateBookView(_mediator, this);
             topBarControl.ResetContents();
             topBarControl.HomeButtonContentControl.Content = new HomeButtonControl(this);
-            topBarControl.TitleText.Text = "Create Book";            
+            topBarControl.TitleText.Text = "Create Book";
         }
 
         public async void ShowBookEntries(int bookId)
@@ -106,9 +106,10 @@ namespace Bk.UserInterface
                     break;
 
                 case nameof(BookType.FuelCreditDiscountBook):
+                    control = new FDCBookEntriesView(_mediator, book.Id, this);
                     break;
             }
-            if(control == null)
+            if (control == null)
             {
                 throw new Exception("Encountered book without view.");
             }
@@ -140,6 +141,7 @@ namespace Bk.UserInterface
                     break;
 
                 case nameof(BookType.FuelCreditDiscountBook):
+                    MainContent.Content = new FDCBookEntryDetailsView(_mediator, entryResponse, this);
                     break;
             }
 
@@ -168,6 +170,7 @@ namespace Bk.UserInterface
                     break;
 
                 case nameof(BookType.FuelCreditDiscountBook):
+                    control = new FDCCreateBookEntryView(_mediator, bookId, this);
                     break;
             }
             if (control == null)
@@ -181,6 +184,23 @@ namespace Bk.UserInterface
             topBarControl.HomeButtonContentControl.Content = new BackButtonControl(bookDetails.Id, this);
         }
 
+        public async void UpdateBookDetails(int bookId)
+        {
+            var bookDetails = await GetBookDetails(bookId);
+            if (bookDetails.BookType == BookType.FuelCreditDiscountBook.ToString())
+            {
+                MainContent.Content = new FDCBookDetailsView(this, _mediator, bookId);
+            }
+            else
+            {
+                MainContent.Content = new BookDetailsView(this, _mediator, bookId);
+
+            }
+            topBarControl.ResetContents();
+            topBarControl.TitleText.Text = "Book Detils : " + bookDetails.Name;
+            topBarControl.HomeButtonContentControl.Content = new BackButtonControl(bookId, this);
+        }
+
         public void UserDetails(UserResponse user)
         {
             MainContent.Content = new UserDetailsView(_mediator, this, user);
@@ -189,18 +209,11 @@ namespace Bk.UserInterface
             topBarControl.TitleText.Text = "User Details";
         }
 
-        
 
-        
 
-        public async void UpdateBookDetails(int bookId)
-        {
-            MainContent.Content = new BookDetailsView(this, _mediator, bookId);
-            var bookDetails = await GetBookDetails(bookId);
-            topBarControl.ResetContents();
-            topBarControl.TitleText.Text = "Book Detils : " + bookDetails.Name;
-            topBarControl.HomeButtonContentControl.Content = new BackButtonControl(bookId, this);
-        }
+
+
+
 
         public void BackToBook(int bookId)
         {
