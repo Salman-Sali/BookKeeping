@@ -243,7 +243,7 @@ namespace Bk.UserInterface.Views.Book.BookEntry
                 Description = DescriptionText.Text,
                 Debit = debit,
                 Credit = credit,
-                ItemType = ItemTypeCombo.Text,
+                ItemType = string.IsNullOrEmpty(ItemTypeCombo.Text) ? null : ItemTypeCombo.Text,
                 Driver = driver,
                 Vehicle = vehicle,
                 Litre = litre,
