@@ -42,13 +42,13 @@ namespace BK.Application.Commands.BookEntries
                 .NotEmpty()
                 .MinimumLength(4)
                 .MaximumLength(30)
-                .When(x => x.Driver != null);
+                .When(x => !string.IsNullOrEmpty(x.Driver));
 
             RuleFor(x => x.Vehicle)
                 .NotEmpty()
                 .MinimumLength(4)
                 .MaximumLength(30)
-                .When(x => x.Vehicle != null);
+                .When(x => !string.IsNullOrEmpty(x.Vehicle));
 
             RuleFor(x => x.Litre)
                 .GreaterThan(0)

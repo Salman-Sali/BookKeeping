@@ -42,13 +42,13 @@ namespace BK.Application.Commands.BookEntries
                 .NotEmpty()
                 .MinimumLength(4)
                 .MaximumLength(30)
-                .When(x => x.Driver != null);
+                .When(x => !string.IsNullOrEmpty(x.Driver));
 
             RuleFor(x => x.Vehicle)
                 .NotEmpty()
                 .MinimumLength(4)
                 .MaximumLength(30)
-                .When(x => x.Vehicle != null);
+                .When(x => !string.IsNullOrEmpty(x.Vehicle));
 
             RuleFor(x => x.Litre)
                 .GreaterThan(0)
@@ -58,7 +58,7 @@ namespace BK.Application.Commands.BookEntries
                 .NotEmpty()
                 .Must(x => Enum.TryParse(typeof(ItemType), x, out var result))
                 .WithMessage("Provide a valid item type.")
-                .When(x => x.ItemType != null);
+                .When(x => !string.IsNullOrEmpty(x.ItemType));
 
             RuleFor(x => x.Amount)
                 .GreaterThan(0)
